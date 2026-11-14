@@ -1,4 +1,4 @@
-// ame-shell(https://github.com/TatsuyaM2667/ame-shell)の src/cmd/ame-emaki.zig から生成。直すときは ame-shell の方を直す
+// ame-shell(https://github.com/TatsuyaM2667/ame-shell)の src/cmd/ame-rec.zig から生成。直すときは ame-shell の方を直す
 const std = @import("std");
 
 const protocols = [_][]const u8{ "protocol/ext-foreign-toplevel-list-v1.xml", "protocol/ext-image-capture-source-v1.xml", "protocol/ext-image-copy-capture-v1.xml", };
@@ -22,7 +22,7 @@ pub fn build(b: *std.Build) void {
         const exe = if (is_test)
             b.addTest(.{ .root_source_file = b.path("src/main.zig"), .target = target, .optimize = optimize })
         else
-            b.addExecutable(.{ .name = "ame-emaki", .root_source_file = b.path("src/main.zig"), .target = target, .optimize = optimize });
+            b.addExecutable(.{ .name = "ame-rec", .root_source_file = b.path("src/main.zig"), .target = target, .optimize = optimize });
         exe.linkLibC();
         exe.addIncludePath(gen.getDirectory());
         for (proto_c.items) |f| exe.addCSourceFile(.{ .file = f, .flags = &.{"-std=c11"} });
