@@ -10,7 +10,9 @@ ame-shell は画面の要らない仕事を、1 つのことをして標準入�
 ```text
 ame-rec: 画面を動画に録る(wf-recorder の代わり)。
 
-  ame-rec -f 保存先.mp4 [-o 出力の名前] [-r 1 秒のコマ数] [--no-audio] [--cpu]
+  ame-rec -f 保存先.mp4 [-g "x,y wxh"] [-o 出力の名前] [-r 1 秒のコマ数] [--no-audio] [--cpu]
+  ame-rec -f 保存先.gif [-g "x,y wxh"]   GIF で(音なし。15 コマ/秒、その動画だけの 256 色)
+    -g は録る範囲(撮った画素の座標。slurp・wf-recorder と同じ書き方)
 
 撮るのは自分(ext-image-copy-capture-v1。画面が変わったときだけ 1 コマ)、動画にするのは ffmpeg(標準入力に生の画素を流す)。
 音は既定の出力で鳴っている音(PulseAudio の口の @DEFAULT_MONITOR@)。
